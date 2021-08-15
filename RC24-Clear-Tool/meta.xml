@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+	<app version="1.0">
+		<name>RiiConnect24 Clear Tool</name>
+		<coder>RiiConnect24</coder>
+		<version>v1.0</version>
+		<release_date>202108150000</release_date>
+		<short_description>Tool to delete certain files to fix RC24 problems.</short_description>
+		<long_description>This tool allows you to delete some files to fix problems with the Forecast Channel, News Channel, and Wii Mail.
+
+Visit us at https://rc24.xyz/</long_description>
+	</app>
