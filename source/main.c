@@ -141,10 +141,10 @@ int main(int argc, char *argv[])
 			printf("Press the B Button to confirm.\n");
 			printf("Press HOME or Start to exit.");
 
-			filenames[1] = "/shared2/wc24/mbox/wc24recv.ctl";
-			filenames[2] = "/shared2/wc24/mbox/wc24recv.mbx";
-			filenames[3] = "/shared2/wc24/mbox/wc24send.ctl";
-			filenames[4] = "/shared2/wc24/mbox/wc24send.mbx";
+			filenames[0] = "/shared2/wc24/mbox/wc24recv.ctl";
+			filenames[1] = "/shared2/wc24/mbox/wc24recv.mbx";
+			filenames[2] = "/shared2/wc24/mbox/wc24send.ctl";
+			filenames[3] = "/shared2/wc24/mbox/wc24send.mbx";
 
 			size = 4;
 
