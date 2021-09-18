@@ -126,7 +126,7 @@ void printheadline()
 	int rows, cols;
 	CON_GetMetrics(&cols, &rows);
 	
-	printf("RiiConnect24 Clear Tool v1.0");
+	printf("RiiConnect24 Clear Tool v1.0.1");
 	
 	char buf[64];
 	sprintf(buf, "IOS%u (v%u)", IOS_GetVersion(), IOS_GetRevision());
