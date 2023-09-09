@@ -20,6 +20,35 @@ int main(int argc, char *argv[])
 	WPAD_Init();
 	WPAD_SetDataFormat(WPAD_CHAN_0, WPAD_FMT_BTNS_ACC_IR);
 
+	ret = CheckvWii();
+
+	if (ret == 1) {
+		printf("\tWARNING!\n");
+		printf("\tYou are running this tool on a vWii (Wii U)!\n");
+		printf("\tUsing this tool on vWii will very likely NOT fix your issue!\n");
+		printf("\tDO NOT PROCEED UNLESS YOU KNOW WHAT YOU ARE DOING!\n\n");
+		printf("\tIf you don't know what to do, ask in the RiiConnect24 Discord server.\n");
+		printf("\tPress HOME to exit, or press 2 to continue.");
+		while (true) {
+			u32 pressed = DetectInput(DI_BUTTONS_DOWN);
+
+			if (pressed & WPAD_BUTTON_2) {
+				clear();
+				printf("You asked for this...");
+				sleep(2);
+				clear();
+				break;
+			}
+			if (pressed & WPAD_BUTTON_HOME) {
+				clear();
+				printf("Exiting...");
+				Reboot();
+				printf("If you're seeing this, no you didn't.");
+				sleep(9999);
+			}
+		}
+	}
+
 	ret = ahbprot_menu();
 	if (ret < 0)
 	{

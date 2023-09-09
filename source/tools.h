@@ -14,6 +14,7 @@
 
 #define MAX_CHARACTERS(x) ((sizeof((x))) / (sizeof((x)[0]))) // Returns the number of elements in an array
 
+bool CheckvWii();
 void Reboot();
 u32 DetectInput(u8 DownOrHeld);
 void Init_Console();

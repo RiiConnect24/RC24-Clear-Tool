@@ -9,6 +9,22 @@
 static void *xfb = NULL;
 static GXRModeObj *rmode = NULL;
 
+bool CheckvWii (void) { // Function taken from the mail patcher, which took it from priiloader
+	s32 ret;
+	u32 x;
+
+	//check if the vWii NandLoader is installed ( 0x200 & 0x201)
+	ret = ES_GetTitleContentsCount(0x0000000100000200ll, &x);
+
+	if (ret < 0)
+		return false; // title was never installed
+
+	if (x <= 0)
+		return false; // title was installed but deleted via Channel Management
+
+	return true;
+}
+
 void Reboot()
 {
 	if (*(u32*)0x80001800) exit(0);
@@ -133,7 +149,7 @@ void printheadline()
 	printf("\x1B[%d;%dH", 0, cols-strlen(buf)-1);
 	printf(buf);
 	
-	printf("\nMade by Larsenv.\n");
+	printf("\nMade by Larsenv & contributors.\n");
 	printf("Based on WC24 Data Removal Tool by DarkMatterCore.\n\n");
 }
 
