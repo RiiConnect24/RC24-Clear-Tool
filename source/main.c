@@ -6,6 +6,8 @@
 
 #include "tools.h"
 
+int is_vWii = 0;
+
 extern void __exception_setreload(int);
 
 int main(int argc, char *argv[])
@@ -34,6 +36,7 @@ int main(int argc, char *argv[])
 
 			if (pressed & WPAD_BUTTON_2) {
 				clear();
+				is_vWii = 1;
 				printf("You asked for this...");
 				sleep(2);
 				clear();
@@ -80,7 +83,10 @@ int main(int argc, char *argv[])
 	printf("Press +Down to delete News Channel data.\n");
 	printf("Press +Left to delete WiiConnect24 mailboxes.\n");
 	printf("Press +Right to delete nwc24msg.cfg.\n");
-	printf("Press A to delete SYSCONF.\n\n");
+	if (is_vWii == 0) {
+		printf("Press A to delete SYSCONF.\n");
+	}
+	printf("\n");
 
 	/* Initialize NAND FS */
 	ISFS_Initialize();
@@ -207,28 +213,30 @@ int main(int argc, char *argv[])
 
 		else if (pressed & WPAD_BUTTON_A)
 		{
-			printf("This will delete your Wii's SYSCONF file, which contains some crucial\n");
-			printf("settings for your Wii. This will likely fix error NEWS000006.\n\n");
+			if (is_vWii == 0) {
+				printf("This will delete your Wii's SYSCONF file, which contains some crucial\n");
+				printf("settings for your Wii. This will likely fix error NEWS000006.\n\n");
 
-			printf("If you choose to delete this, your Wii will go into initial setup mode.\n");
-			printf("Your mail on your Wii Message Board will also be deleted, so make sure to\n");
-			printf("backup /title/00000001/00000002/data/cdb.vff on your NAND if you wish to\n");
-			printf("keep your mail.\n\n");
+				printf("If you choose to delete this, your Wii will go into initial setup mode.\n");
+				printf("Your mail on your Wii Message Board will also be deleted, so make sure to\n");
+				printf("backup /title/00000001/00000002/data/cdb.vff on your NAND if you wish to\n");
+				printf("keep your mail.\n\n");
 
-			printf("Keep in mind that deleting your SYSCONF is safe.\n\n");
+				printf("Keep in mind that deleting your SYSCONF is safe.\n\n");
 
-			usleep(5000000);
+				usleep(5000000);
 
-			printf("Are you sure you want to delete your SYSCONF?\n\n");
+				printf("Are you sure you want to delete your SYSCONF?\n\n");
 
-			printf("Press the B Button to confirm.\n");
-			printf("Press HOME or Start to exit.");
+				printf("Press the B Button to confirm.\n");
+				printf("Press HOME or Start to exit.");
 
-			filenames[0] = "/shared2/sys/SYSCONF";
+				filenames[0] = "/shared2/sys/SYSCONF";
 
-			size = 1;
+				size = 1;
 
-			break;
+				break;
+			}
 		}
 	}
 
