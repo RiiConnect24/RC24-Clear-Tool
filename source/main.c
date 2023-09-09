@@ -307,6 +307,8 @@ int main(int argc, char *argv[])
 			}
 
 			break;
+		} else if ( pressed & WPAD_BUTTON_HOME ) {
+			break;
 		}
 	}
 
