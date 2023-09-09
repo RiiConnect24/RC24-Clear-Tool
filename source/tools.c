@@ -133,7 +133,7 @@ void printheadline()
 	printf("\x1B[%d;%dH", 0, cols-strlen(buf)-1);
 	printf(buf);
 	
-	printf("\nMade by Larsenv.\n");
+	printf("\nMade by Larsenv & contributors.\n");
 	printf("Based on WC24 Data Removal Tool by DarkMatterCore.\n\n");
 }
 
