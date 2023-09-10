@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
 	printf("Press +Left to delete WiiConnect24 mailboxes.\n");
 	printf("Press +Right to delete nwc24msg.cfg.\n");
 	printf("Press A to delete SYSCONF.\n\n");
+	printf("Press HOME to exit.\n");
 
 	/* Initialize NAND FS */
 	ISFS_Initialize();
@@ -201,6 +202,12 @@ int main(int argc, char *argv[])
 
 			break;
 		}
+
+		else if (pressed & WPAD_BUTTON_HOME)
+		{
+			printf("Exiting...");
+			Reboot();
+		}
 	}
 
 	while (true)
@@ -299,6 +306,8 @@ int main(int argc, char *argv[])
 				printf("\n");
 			}
 
+			break;
+		} else if ( pressed & WPAD_BUTTON_HOME ) {
 			break;
 		}
 	}
